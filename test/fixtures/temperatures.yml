@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: one
+  date: 2024-08-26
+  temperature: 1.5
+
+two:
+  city: two
+  date: 2024-08-26
+  temperature: 1.5

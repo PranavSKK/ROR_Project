@@ -1,0 +1,10 @@
+<h1>City Temperatures</h1>
+
+<ul>
+  <% @cities.each do |city| %>
+    <li>
+      <%= link_to city.name, city_path(city) %>
+      - Current Temperature: <%= city.temperatures.order(date: :desc).first.temperature %>°C
+    </li>
+  <% end %>
+</ul>

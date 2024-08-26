@@ -1,0 +1,18 @@
+<h1><%= @city.name %> - Last 7 Days Temperature</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Temperature (°C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @temperatures.order(date: :desc).each do |temperature| %>
+      <tr>
+        <td><%= temperature.date.strftime('%Y-%m-%d') %></td>
+        <td><%= temperature.temperature %>°C</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

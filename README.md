@@ -1,0 +1,5 @@
+- User authentication with sign-up, login, logout, and password reset functionality.
+- Temperature data tracking for 25 cities, including historical data for the past 7 days.
+- Integration with an external weather API for fetching temperature data.
+- Background job to update temperature data daily.
+- (Optional) Real-time temperature updates using WebSockets.
