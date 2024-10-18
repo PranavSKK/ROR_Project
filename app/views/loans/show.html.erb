@@ -1,0 +1,10 @@
+<!-- app/views/loans/show.html.erb -->
+<h1>Loan Details</h1>
+
+<p>
+  <strong>Loan Amount:</strong> <%= @loan.amount %><br>
+  <strong>Interest Rate:</strong> <%= @loan.interest_rate %>%<br>
+  <strong>State:</strong> <%= @loan.state %>
+</p>
+
+<%= link_to 'Back to User Loans', user_path(@loan.user) %>

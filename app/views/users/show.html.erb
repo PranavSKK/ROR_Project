@@ -1,0 +1,28 @@
+<h1>User Details</h1>
+
+<p>
+  <strong>Email:</strong> <%= @user.email %>
+</p>
+
+<p>
+  <strong>Wallet Balance:</strong> ₹<%= @user.wallet_balance %>
+</p>
+
+<h2>Loans</h2>
+
+<% if @user.loans.any? %>
+  <ul>
+    <% @user.loans.each do |loan| %>
+      <li>
+        <strong>Amount:</strong> ₹<%= loan.amount %> |
+        <strong>Interest Rate:</strong> <%= loan.interest_rate %>% |
+        <strong>State:</strong> <%= loan.state %> |
+        <%= link_to 'View Loan', user_loan_path(@user, loan) %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This user has no loans.</p>
+<% end %>
+
+<%= link_to 'Back to Users', users_path %>

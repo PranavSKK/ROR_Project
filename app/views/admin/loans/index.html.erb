@@ -1,0 +1,30 @@
+<!-- app/views/admin/loans/index.html.erb -->
+<h1>Loan Requests</h1>
+
+<p><strong>Email:</strong> <%= current_user.email %></p>
+<p><strong>Admin Wallet Balance:</strong> <%= number_to_currency(@admin_wallet / 100.0) %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Amount</th>
+      <th>State</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.user.email %></td>
+        <td><%= number_to_currency(loan.amount) %></td>
+        <td><%= loan.state %></td>
+        <td>
+          <%= button_to 'Approve', admin_loan_path(loan), method: :patch, params: { action_type: 'approve' } %>
+          <%= button_to 'Reject', admin_loan_path(loan), method: :patch, params: { action_type: 'reject' } %>
+          <%= link_to 'Adjust', edit_admin_loan_path(loan) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

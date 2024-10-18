@@ -1,0 +1,16 @@
+<!-- app/views/admin/loans/edit.html.erb -->
+<h1>Adjust Interest Rate for Loan</h1>
+
+<%= form_with(model: @loan, url: admin_loan_path(@loan), method: :patch) do |form| %>
+  <div>
+    <%= form.label :interest_rate, "New Interest Rate" %>
+    <%= form.number_field :interest_rate, step: 0.01, value: @loan.interest_rate %>
+  </div>
+  
+  <div>
+    <%= form.hidden_field :action_type, value: 'adjust' %>
+    <%= form.submit "Update Interest Rate" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Loan Requests', admin_loans_path %>

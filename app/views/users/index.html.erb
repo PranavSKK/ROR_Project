@@ -1,0 +1,20 @@
+<h1>Welcome, <%= current_user.email %></h1>
+
+<!-- Request Loan button -->
+<%= link_to 'Request a Loan', new_user_loan_path(current_user), class: 'btn btn-primary' %>
+
+<h2>Your Loans</h2>
+
+<% if @loans.any? %>
+  <% @loans.each do |loan| %>
+    <p>
+      Amount: ₹<%= loan.amount %>, State: <%= loan.state %>
+      <%= link_to 'View', user_loan_path(current_user, loan) %> <!-- Pass user and loan -->
+    </p>
+  <% end %>
+<% else %>
+  <p>You have no loans.</p>
+<% end %>
+
+<!-- Sign Out button -->
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
